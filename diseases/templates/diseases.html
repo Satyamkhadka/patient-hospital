@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%block content%}
+{%load static%}
+
+<div class="container mx-auto">
+  <span class="flex justify-center my-8 text-4xl text-center font-bold tracking-tight text-gray-900 dark:text-white ">
+      All Diseases
+  </span>
+   <div class="flex flex-col items-center">
+
+      {%if diseases_list %}
+      {% for disease in diseases_list %}
+    
+  <a href="/disease/{{disease.id}}" class="flex flex-col flex-auto items-center w-full bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="/uploads/{{disease.display_image}}" alt="">
+      <div class="flex flex-col w-full justify-between p-4 leading-normal">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{disease.name}} </h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{disease.short_description}}</p>
+  </div>
+</a>
+{% endfor %}
+  {% else %}
+      <span class="flex flex-col items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <div class="flex flex-col justify-between p-4 leading-normal">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Record Found.</h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">No Search results found. Please change your keywords and try again.</p>
+          </div>
+        </span>
+  {%endif%}
+  
+<span class="flex justify-center gap-2 mt-10">
+<a href="/disease/all/?q={{prev}}" class="inline-flex items-center py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    Previous
+    </a>
+    
+    <a href="/disease/all/?q={{next}}" class="inline-flex items-center py-2 px-4 ml-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+    Next
+    </a>
+</span>
+    
+  </div>
+</div>  
+{%endblock%}
