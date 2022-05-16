@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'hospitals.apps.HospitalsConfig',
     'diseases.apps.DiseasesConfig',
     'homepage.apps.HomepageConfig',
+    'subscribe.apps.SubscribeConfig',
     'search.apps.SearchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -136,3 +137,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # extra
 
 TAILWIND_APP_NAME = 'theme'
+
+
+# email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'email'
+EMAIL_HOST_PASSWORD = 'pass'
