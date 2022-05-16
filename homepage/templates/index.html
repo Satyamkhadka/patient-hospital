@@ -78,6 +78,12 @@
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{disease.name}}
             </h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{disease.short_description}}</p>
+            <h6 class="text-xs leading-tight text-gray-200 dark:text-white mt-1">
+                {% if disease.featured %} Featured
+                {% else %}
+                Latest
+                {% endif %}
+            </h6>
         </div>
     </a>
     {% endfor %}
@@ -111,6 +117,12 @@
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {{hospital.name}}
             </h5>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{hospital.short_description}}</p>
+            <h6 class="text-xs leading-tight text-gray-200 dark:text-white mt-1">
+                {% if disease.featured %} Featured
+                {% else %}
+                Latest
+                {% endif %}
+            </h6>
         </div>
     </a>
     {% endfor %}

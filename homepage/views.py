@@ -15,8 +15,8 @@ def check_if_nepal(data):
 
 
 def homepage(request):
-    diseases_list = Disease.objects.order_by('-pub_date')[:3]
-    hospitals_list = Hospital.objects.order_by('-pub_date')[:3]
+    diseases_list = Disease.objects.order_by('-featured', '-pub_date')[:3]
+    hospitals_list = Hospital.objects.order_by('-featured', '-pub_date')[:3]
     URL = "https://api.covid19api.com/summary"
     r = requests.get(url=URL)
     data = r.json()

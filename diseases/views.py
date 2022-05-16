@@ -3,12 +3,16 @@ from django.shortcuts import render
 # Create your views here.
 
 from .models import Disease
+from hospitals.models import Hospital
 
 
 def disease(request, disease_id):
     disease = Disease.objects.get(pk=disease_id)
+    recommended_hospitals = Hospital.objects.filter(
+        specialization__id=disease.id)[:3]
     context = {
-        'disease': disease
+        'disease': disease,
+        'recommended_hospitals': recommended_hospitals
     }
     return render(request, 'disease.html', context)
 

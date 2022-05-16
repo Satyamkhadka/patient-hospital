@@ -8,7 +8,8 @@ from .models import Hospital
 def hospital(request, hospital_id):
     hospital = Hospital.objects.get(pk=hospital_id)
     context = {
-        'hospital': hospital
+        'hospital': hospital,
+        'specialization_list': hospital.specialization.all()[:3]
     }
     return render(request, 'hospital.html', context)
 
