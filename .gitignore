@@ -2,3 +2,4 @@
 uploads
 .vscode
 email_settings.txt
+db.sqlite3
